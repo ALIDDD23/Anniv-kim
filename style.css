@@ -1,0 +1,1116 @@
+/* ================================
+   RESET
+================================ */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: #05050b;
+    color: white;
+    overflow-x: hidden;
+}
+
+button {
+    font-family: inherit;
+}
+
+
+/* ================================
+   OPENING
+================================ */
+
+.opening {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 50% 40%,
+        rgba(120, 90, 160, 0.18),
+        transparent 35%),
+        linear-gradient(
+            180deg,
+            #070711 0%,
+            #0b0814 50%,
+            #030308 100%
+        );
+}
+
+
+/* ================================
+   STARS
+================================ */
+
+.stars,
+.stars::before,
+.stars::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    pointer-events: none;
+}
+
+.stars {
+    background-image:
+        radial-gradient(circle, rgba(255,255,255,.8) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255,255,255,.5) 1px, transparent 1px);
+
+    background-size: 90px 90px, 140px 140px;
+    background-position: 10px 20px, 60px 80px;
+
+    opacity: .35;
+
+    animation: starsMove 18s linear infinite;
+}
+
+.stars::before {
+    background-image:
+        radial-gradient(circle, white 1px, transparent 1px);
+
+    background-size: 180px 180px;
+
+    opacity: .25;
+}
+
+@keyframes starsMove {
+
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-90px);
+    }
+
+}
+
+
+/* ================================
+   OPENING CONTENT
+================================ */
+
+.opening-content {
+    width: min(90%, 600px);
+
+    text-align: center;
+
+    position: relative;
+    z-index: 2;
+
+    animation: openingAppear 1.5s ease forwards;
+}
+
+@keyframes openingAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+.mini-text {
+    font-size: 12px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,.55);
+
+    margin-bottom: 25px;
+}
+
+
+.opening h1 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(55px, 11vw, 100px);
+
+    line-height: .95;
+
+    font-weight: 400;
+
+    letter-spacing: -2px;
+
+    text-shadow:
+        0 0 25px rgba(255,255,255,.08);
+}
+
+
+.opening h1 span {
+    font-style: italic;
+
+    color: #d9bfd8;
+
+    text-shadow:
+        0 0 30px rgba(190,140,200,.35);
+}
+
+
+.subtitle {
+    max-width: 430px;
+
+    margin: 30px auto 35px;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+    color: rgba(255,255,255,.62);
+}
+
+
+/* ================================
+   TOUCH BUTTON
+================================ */
+
+.touch-button {
+    position: relative;
+
+    display: inline-flex;
+
+    align-items: center;
+    justify-content: center;
+
+    gap: 12px;
+
+    padding: 15px 28px;
+
+    border-radius: 50px;
+
+    border: 1px solid rgba(255,255,255,.2);
+
+    color: white;
+
+    background: rgba(255,255,255,.06);
+
+    backdrop-filter: blur(15px);
+
+    cursor: pointer;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
+
+    box-shadow:
+        0 0 30px rgba(180,130,200,.08);
+}
+
+
+.touch-button span:first-child {
+    font-size: 22px;
+
+    color: #e5c8e4;
+
+    animation: heartbeat 1.8s ease-in-out infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.25);
+    }
+
+}
+
+
+.touch-button:hover {
+    transform: translateY(-4px);
+
+    background: rgba(255,255,255,.1);
+
+    box-shadow:
+        0 0 35px rgba(200,150,210,.2);
+}
+
+
+.touch-button:active {
+    transform: scale(.94);
+}
+
+
+.hint {
+    margin-top: 15px;
+
+    font-size: 10px;
+
+    letter-spacing: 2px;
+
+    color: rgba(255,255,255,.3);
+}
+
+
+/* ================================
+   SURPRISE
+================================ */
+
+.surprise {
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    padding: 40px 20px;
+
+    position: relative;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(110,75,130,.2),
+            transparent 45%
+        ),
+        #07070d;
+}
+
+
+.surprise-content {
+    width: min(90%, 600px);
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 1s ease,
+        transform 1s ease;
+}
+
+
+.surprise.active .surprise-content {
+    opacity: 1;
+
+    transform: translateY(0);
+}
+
+
+.surprise h2 {
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(48px, 9vw, 80px);
+
+    line-height: 1;
+
+    font-weight: 400;
+
+    margin-bottom: 30px;
+}
+
+
+.surprise h2 span {
+    color: #d9bfd8;
+
+    font-style: italic;
+}
+
+
+.surprise p:not(.mini-text) {
+    max-width: 500px;
+
+    margin: 0 auto 35px;
+
+    color: rgba(255,255,255,.62);
+
+    line-height: 1.9;
+
+    font-size: 14px;
+}
+
+
+/* ================================
+   GENERAL BUTTON
+================================ */
+
+.next-button,
+.whatsapp-button {
+
+    border: none;
+
+    padding: 14px 25px;
+
+    border-radius: 50px;
+
+    cursor: pointer;
+
+    color: #fff;
+
+    background: linear-gradient(
+        135deg,
+        #a986ad,
+        #725b86
+    );
+
+    box-shadow:
+        0 10px 35px rgba(130,90,150,.2);
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+
+.next-button:hover,
+.whatsapp-button:hover {
+
+    transform: translateY(-4px);
+
+    box-shadow:
+        0 15px 40px rgba(160,110,180,.3);
+}
+
+
+.next-button:active,
+.whatsapp-button:active {
+
+    transform: scale(.95);
+
+}
+
+
+/* ================================
+   LETTER
+================================ */
+
+.letter {
+
+    min-height: 100vh;
+    min-height: 100svh;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 50px 20px;
+
+    background:
+        linear-gradient(
+            180deg,
+            #07070d,
+            #0d0911
+        );
+}
+
+
+.letter-box {
+
+    width: min(90%, 650px);
+
+    padding: 50px 35px;
+
+    text-align: center;
+
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,.1);
+
+    background:
+        rgba(255,255,255,.035);
+
+    backdrop-filter: blur(20px);
+
+    box-shadow:
+        0 30px 100px rgba(0,0,0,.4);
+}
+
+
+.letter-symbol {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 45px;
+
+    color: #d9bfd8;
+
+    margin-bottom: 20px;
+}
+
+
+.letter-box h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(35px, 7vw, 55px);
+
+    font-weight: 400;
+
+    margin-bottom: 30px;
+}
+
+
+.letter-box p:not(.mini-text):not(.signature) {
+
+    color: rgba(255,255,255,.65);
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    margin-bottom: 20px;
+}
+
+
+.signature {
+
+    font-family: "DM Serif Display", serif;
+
+    font-style: italic;
+
+    color: #d9bfd8;
+
+    margin: 30px 0;
+}
+
+
+/* ================================
+   PHOTO SURPRISE
+================================ */
+
+.photo-surprise {
+
+    min-height: 100vh;
+
+    min-height: 100svh;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(120,80,140,.18),
+            transparent 50%
+        ),
+        #05050b;
+}
+
+
+.photo-content {
+
+    width: min(95%, 700px);
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+.photo-content h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(40px, 8vw, 65px);
+
+    font-weight: 400;
+
+    line-height: 1.05;
+
+    margin-bottom: 50px;
+}
+
+
+/* ================================
+   PHOTO BUBBLES
+================================ */
+
+.photo-bubbles {
+
+    height: 350px;
+
+    position: relative;
+
+    margin-bottom: 25px;
+}
+
+
+.photo-bubble {
+
+    position: absolute;
+
+    width: 130px;
+    height: 130px;
+
+    border-radius: 50%;
+
+    overflow: hidden;
+
+    border: 3px solid rgba(255,255,255,.65);
+
+    box-shadow:
+        0 0 30px rgba(190,150,210,.2);
+
+    cursor: pointer;
+
+    transition:
+        transform .5s ease,
+        box-shadow .5s ease;
+
+    animation: bubbleFloat 5s ease-in-out infinite;
+}
+
+
+.photo-bubble img {
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    display: block;
+}
+
+
+.bubble-1 {
+
+    left: 12%;
+
+    top: 70px;
+
+    animation-delay: 0s;
+}
+
+
+.bubble-2 {
+
+    left: 50%;
+
+    top: 0;
+
+    transform: translateX(-50%);
+
+    animation-delay: -1.5s;
+}
+
+
+.bubble-3 {
+
+    right: 12%;
+
+    top: 90px;
+
+    animation-delay: -3s;
+}
+
+
+@keyframes bubbleFloat {
+
+    0%, 100% {
+        margin-top: 0;
+    }
+
+    50% {
+        margin-top: -25px;
+    }
+
+}
+
+
+.photo-bubble:hover {
+
+    transform: scale(1.15);
+
+    box-shadow:
+        0 0 45px rgba(220,180,230,.45);
+
+    z-index: 5;
+}
+
+
+.bubble-2:hover {
+
+    transform: translateX(-50%) scale(1.15);
+}
+
+.photo-bubble.selected {
+    animation: photoPop .6s ease forwards;
+
+    box-shadow:
+        0 0 50px rgba(230,190,240,.6);
+
+    border-color: rgba(255,255,255,.95);
+
+    z-index: 20;
+}
+
+@keyframes photoPop {
+
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1.12);
+    }
+
+}
+
+.bubble-2.selected {
+    animation: photoPopCenter .6s ease forwards;
+}
+
+@keyframes photoPopCenter {
+
+    0% {
+        transform: translateX(-50%) scale(1);
+    }
+
+    50% {
+        transform: translateX(-50%) scale(1.3);
+    }
+
+    100% {
+        transform: translateX(-50%) scale(1.12);
+    }
+
+}
+
+.photo-hint {
+
+    font-size: 10px;
+
+    letter-spacing: 3px;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,.35);
+
+    margin-bottom: 30px;
+}
+
+.photo-surprise::before {
+
+    content: "♡";
+
+    position: absolute;
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 300px;
+
+    color: rgba(210,170,220,.025);
+
+    top: 50%;
+
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+
+    pointer-events: none;
+
+    animation: heartGlow 4s ease-in-out infinite;
+
+}
+
+
+@keyframes heartGlow {
+
+    0%, 100% {
+        opacity: .3;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    50% {
+        opacity: .7;
+        transform: translate(-50%, -50%) scale(1.08);
+    }
+
+}
+
+/* ================================
+   WHATSAPP
+================================ */
+
+.whatsapp-button {
+
+    background: rgba(255,255,255,.07);
+
+    border: 1px solid rgba(255,255,255,.15);
+
+    backdrop-filter: blur(10px);
+
+    box-shadow: none;
+}
+
+
+/* ================================
+   MOBILE
+================================ */
+
+@media (max-width: 600px) {
+
+    .opening h1 {
+        font-size: 58px;
+    }
+
+    .subtitle {
+        font-size: 13px;
+    }
+
+    .letter-box {
+        padding: 40px 23px;
+    }
+
+    .photo-bubbles {
+        height: 300px;
+    }
+
+    .photo-bubble {
+        width: 105px;
+        height: 105px;
+    }
+
+    .bubble-1 {
+        left: 3%;
+    }
+
+    .bubble-3 {
+        right: 3%;
+    }
+
+}
+
+
+/* ================================
+   HIDDEN STATE
+================================ */
+
+.surprise,
+.letter,
+.photo-surprise {
+
+    display: none;
+}
+
+
+.surprise.show,
+.letter.show,
+.photo-surprise.show {
+
+    display: flex;
+
+}
+
+/* ========================================
+   ENDING BUBBLE SURPRISE
+======================================== */
+
+.photo-bubble.surprise-bubble {
+
+    animation:
+        bubbleFloat 4s ease-in-out infinite,
+        bubbleGlow 2.5s ease-in-out infinite;
+
+}
+
+/* ========================================
+   BUBBLE BERKUMPUL
+======================================== */
+
+.photo-bubbles.final-arrangement .bubble-1 {
+    left: 50%;
+    top: 35px;
+    transform: translateX(-50%) rotate(-12deg);
+}
+
+.photo-bubbles.final-arrangement .bubble-2 {
+    left: 50%;
+    top: 150px;
+    transform: translateX(-50%) scale(1.08);
+}
+
+.photo-bubbles.final-arrangement .bubble-3 {
+    right: auto;
+    left: 50%;
+    top: 265px;
+    transform: translateX(-50%) rotate(12deg);
+}
+
+
+.photo-bubbles.final-arrangement .bubble-1,
+.photo-bubbles.final-arrangement .bubble-2,
+.photo-bubbles.final-arrangement .bubble-3 {
+
+    transition:
+        left 1.5s ease,
+        right 1.5s ease,
+        top 1.5s ease,
+        transform 1.5s ease;
+
+}
+
+@keyframes bubbleGlow {
+
+    0%, 100% {
+        box-shadow:
+            0 0 25px rgba(220,180,230,.15);
+    }
+
+    50% {
+        box-shadow:
+            0 0 55px rgba(220,180,230,.55);
+    }
+
+}
+
+/* ========================================
+   FINAL MESSAGE
+======================================== */
+
+.final-message {
+
+    position: relative;
+
+    margin-top: 20px;
+
+    opacity: 0;
+
+    transform: translateY(30px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+
+}
+
+
+.final-message.show {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+}
+
+
+.final-mini {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,.4);
+
+    margin-bottom: 20px;
+
+}
+
+
+.final-message h2 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(40px, 8vw, 65px);
+
+    font-weight: 400;
+
+    line-height: 1;
+
+    margin-bottom: 25px;
+
+}
+
+
+.final-message h2 span {
+
+    color: #d9bfd8;
+
+    font-style: italic;
+
+}
+
+
+.final-message > p:not(.final-mini):not(.final-signature) {
+
+    max-width: 500px;
+
+    margin: 0 auto;
+
+    color: rgba(255,255,255,.6);
+
+    font-size: 13px;
+
+    line-height: 1.9;
+
+}
+
+
+.final-signature {
+
+    font-family: "DM Serif Display", serif;
+
+    font-style: italic;
+
+    color: #d9bfd8;
+
+    margin-top: 20px;
+
+}
+.final-message::before {
+
+    content: "♡";
+
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: 260px;
+
+    color: rgba(220, 180, 230, .035);
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+/* ========================================
+   LAST SURPRISE
+======================================== */
+
+.last-surprise {
+
+    margin: 25px auto 30px;
+
+    max-width: 500px;
+
+    opacity: 0;
+
+    transform: translateY(25px) scale(.95);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+.last-surprise.show {
+
+    opacity: 1;
+
+    transform: translateY(0) scale(1);
+}
+
+
+.last-surprise .sparkle {
+
+    font-size: 25px;
+
+    color: #e5c8e4;
+
+    margin-bottom: 15px;
+
+    animation:
+        sparkleRotate 3s linear infinite;
+}
+
+
+@keyframes sparkleRotate {
+
+    0% {
+        transform: rotate(0deg) scale(1);
+    }
+
+    50% {
+        transform: rotate(180deg) scale(1.2);
+    }
+
+    100% {
+        transform: rotate(360deg) scale(1);
+    }
+
+}
+
+
+.last-surprise p {
+
+    font-size: 10px;
+
+    letter-spacing: 4px;
+
+    text-transform: uppercase;
+
+    color: rgba(255,255,255,.35);
+
+    margin-bottom: 15px;
+}
+
+
+.last-surprise h3 {
+
+    font-family: "DM Serif Display", serif;
+
+    font-size: clamp(25px, 5vw, 38px);
+
+    font-weight: 400;
+
+    line-height: 1.25;
+
+    color: rgba(255,255,255,.9);
+
+    margin-bottom: 18px;
+}
+
+
+.last-surprise span {
+
+    font-family: "DM Serif Display", serif;
+
+    font-style: italic;
+
+    font-size: 20px;
+
+    color: #d9bfd8;
+
+}
